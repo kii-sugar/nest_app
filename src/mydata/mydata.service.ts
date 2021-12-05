@@ -20,4 +20,8 @@ export class MydataService {
 	addMydata(data:any):Promise<InsertResult> {
 		return this.mydataRepository.insert(data)
 	}
+
+	getByName(name:string):Promise<Mydata> {
+		return this.mydataRepository.findOne({name:name})
+	}
 }

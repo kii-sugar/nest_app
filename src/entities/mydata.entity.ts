@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { Board } from './board.entity';
 
 // エンティティにつけるデコレーター
 @Entity()
@@ -18,4 +19,7 @@ export class Mydata {
 
 	@Column()
 	age: number
+
+	@OneToMany(type => Board, board => board.mydata, {})
+	boards: Board[]
 }
